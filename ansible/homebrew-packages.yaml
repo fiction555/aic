@@ -1,0 +1,36 @@
+- hosts: localhost
+  vars_files:
+    - vault/main.yaml 
+  vars:
+    ansible_become_pass: "{{ sudo_pass }}"
+    homebrew_installed_packages:
+      - git
+      - exa
+      - fzy
+      - ccat
+      - node
+      - python@2
+      - python
+      - profanity
+    homebrew_cask_apps:
+      - aware
+      - atom
+      - miniconda
+      - emacs
+      - komodo-edit
+      - google-chrome
+      - anki
+      - iterm2
+      - sip
+      - font-iosevka
+      - font-3270-nerd-font-mono
+      - font-mononoki-nerd-font-mono
+      - gimp
+      - xquartz
+      - inkscape
+      - arduino
+    homebrew_taps:
+      - jhawthorn/fzy
+      - caskroom/fonts
+  roles:
+    - geerlingguy.homebrew
